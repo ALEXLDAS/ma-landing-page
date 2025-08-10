@@ -527,22 +527,29 @@
             <p class="subtitle">Découvrez comment économiser jusqu'à 75% sur vos voyages ET générer des revenus passifs avec l'IA de trading la plus performante du marché</p>
             
             <div class="email-form" id="email-form">
-                <h3 class="form-title">🔥 Accès VIP à ma Présentation Exclusive</h3>
-                <p style="margin-bottom: 1.5rem; color: #b0b0b0;">Découvrez les bots de trading qui génèrent 50-300% par an en automatique</p>
-                <form onsubmit="handleEmailSubmit(event)">
-                    <div class="form-group">
-                        <input type="text" placeholder="Votre prénom" required id="firstName">
-                        <input type="email" placeholder="Votre email" required id="email">
-                    </div>
-                    <button type="submit" class="submit-btn">
-                        🎯 ACCÉDER À LA PRÉSENTATION VIP
-                    </button>
-                    <div class="success-message" id="successMessage">
-                        ✅ Parfait ! Vérifiez votre email pour accéder à la présentation exclusive des bots MythFi
-                    </div>
-                    <p class="privacy-text">🔒 Vos données sont sécurisées. Pas de spam, que du contenu de qualité.</p>
-                </form>
-            </div>
+    <h3 class="form-title">🔥 Accès VIP à ma Présentation Exclusive</h3>
+    <p style="margin-bottom: 1.5rem; color: #b0b0b0;">Découvrez les bots de trading qui génèrent 50-300% par an en automatique</p>
+    
+    <!-- Systeme.io Form Container -->
+    <div id="systeme-form-container">
+        <!-- Le formulaire Systeme.io sera injecté ici -->
+    </div>
+    
+    <!-- Fallback form si Systeme.io ne charge pas -->
+    <form onsubmit="handleEmailSubmit(event)" id="fallback-form" style="display: none;">
+        <div class="form-group">
+            <input type="text" placeholder="Votre prénom" required id="firstName">
+            <input type="email" placeholder="Votre email" required id="email">
+        </div>
+        <button type="submit" class="submit-btn">
+            🎯 ACCÉDER À LA PRÉSENTATION VIP
+        </button>
+        <div class="success-message" id="successMessage">
+            ✅ Parfait ! Vérifiez votre email pour accéder à la présentation exclusive des bots MythFi
+        </div>
+        <p class="privacy-text">🔒 Vos données sont sécurisées. Pas de spam, que du contenu de qualité.</p>
+    </form>
+</div>
         </div>
     </section>
 
