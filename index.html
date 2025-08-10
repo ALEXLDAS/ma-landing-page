@@ -746,22 +746,41 @@
 
     <script>
         function handleEmailSubmit(event) {
-            event.preventDefault();
-            const firstName = document.getElementById('firstName').value;
-            const email = document.getElementById('email').value;
+    event.preventDefault();
+    
+    // Détecter si le formulaire Systeme.io est chargé
+    const systemeForm = document.querySelector('#systeme-form-container form');
+    
+    if (systemeForm) {
+        // Si Systeme.io est disponible, déclencher sa soumission
+        const firstNameInput = systemeForm.querySelector('input[name*="first"], input[name*="prenom"], input[name*="nom"]');
+        const emailInput = systemeForm.querySelector('input[type="email"]');
+        
+        if (firstNameInput && emailInput) {
+            firstNameInput.value = document.getElementById('firstName').value;
+            emailInput.value = document.getElementById('email').value;
             
-            // Simulate form submission
-            const successMessage = document.getElementById('successMessage');
-            successMessage.style.display = 'block';
-            
-            // In real implementation, this would send to your email service
-            setTimeout(() => {
-                alert(`Parfait ${firstName} ! 🎉\n\nVotre accès VIP vous attend dans votre boîte email (${email}).\n\nVérifiez aussi vos spams si besoin.\n\nDans ma présentation exclusive, vous découvrirez :\n✅ Comment les bots génèrent 50-300% par an\n✅ Ma stratégie personnelle avec JIFU\n✅ Comment démarrer avec un petit budget\n\nÀ tout de suite ! 🚀`);
-            }, 1000);
-            
-            // Reset form
-            event.target.reset();
+            // Déclencher la soumission du formulaire Systeme.io
+            systemeForm.submit();
+            return;
         }
+    }
+    
+    // Sinon, utiliser le formulaire de secours
+    const firstName = document.getElementById('firstName').value;
+    const email = document.getElementById('email').value;
+    
+    // Simulation de soumission
+    const successMessage = document.getElementById('successMessage');
+    successMessage.style.display = 'block';
+    
+    setTimeout(() => {
+        alert(`Parfait ${firstName} ! 🎉\n\nVotre accès VIP vous attend dans votre boîte email (${email}).\n\nVérifiez aussi vos spams si besoin.\n\nDans ma présentation, je vous révèle mes stratégies secrètes pour générer 50-300% de profits en automatique !`);
+    }, 1000);
+    
+    // Reset form
+    event.target.reset();
+}
 
         // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
